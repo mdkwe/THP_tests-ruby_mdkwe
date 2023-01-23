@@ -1,12 +1,21 @@
-#### --------- Continuer ici
+# DO : capitalizes word
+def titleize(word)
+  littleWords = ["end", "over", "and", "the"]
+  split_text = word.split(" ")
+  block = split_text.map{ |item| littleWords.include?(item) } 
+  block[0] = false #does capitalize 'little words' at the start of a title
+  
+  output = []
+  for index in 0..(split_text.size()-1)
+    if block[index] == false then
+      output.append(split_text[index].capitalize)
+    else
+      output.append(split_text[index])
+    end
+  end
+  return output.join(" ")
+end
 
+titleize("the bridge over the river kwai")
 
-# DO :   
-  # array_42 takes an array as parameter and returns:
-  # - true if there's a 42 in the array items
-  # - false otherwise
-def array_42(array)
-  puts array.scan(/[42]/)
-end 
-
-array_42([1, 2, 3, 4, 5, 6, 7 , 8, 9, 42, 21, 10.5])
+#("The Bridge Over the River Kwai")
