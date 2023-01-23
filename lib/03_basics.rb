@@ -25,9 +25,9 @@ end
   # array_42 takes an array as parameter and returns:
   # - true if there's a 42 in the array items
   # - false otherwise
-def array_42(array)
-  return (array.size() == 42) 
-end 
+  def array_42(array)
+    return array.any?{ |item,_| item == 42 }
+  end 
 
 # DO : 
   # The magic_array function takes an array of number or an array of
@@ -41,4 +41,5 @@ end
   # BONUS : You can do this in one line less than 55 chars
   
   def magic_array(array)
+    return array.flatten.sort.map{ |item| item * 2 }.reject{ |item| item %3 == 0 }.uniq.sort
   end 
